@@ -15,6 +15,10 @@ struct Node
     Node(int v, Node* n) : val(v), next(n) {}
 };
 
+struct isEven {
+bool operator()(int x) { return x % 2 == 0; } 
+};
+
 
 /**
  * Given a linked list pointed to by head, creates two lists
@@ -80,11 +84,18 @@ Node* llfilter(Node* head, Comp pred);
 template <typename Comp>
 Node* llfilter(Node* head, Comp pred)
 {
-    //*********************************************
-    // Provide your implementation below
-    //*********************************************
-
-
+    if(head == NULL) return NULL;
+    head -> next = llfilter(head -> next, pred);
+    if(pred(head -> val))
+    {
+      Node* nextNode = head -> next;
+      delete head;
+      return nextNode;
+    }
+    else
+    {
+      return head;
+    }
 }
 
 #endif

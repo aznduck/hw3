@@ -86,6 +86,21 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+    Node* smaller = NULL;
+    Node* larger = NULL;
+    int pivot = 10;
+    llpivot(head, smaller, larger, pivot);
+    cout << "Smaller: ";
+    print(smaller);
+    cout << "Larger: ";
+    print(larger);
+
+    Node* head2 = readList(argv[1]);
+    cout << "Original list: ";
+    print(head2);
+
+    isEven pred;
+    print(llfilter(head2, pred));
 
 
 
