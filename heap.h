@@ -62,7 +62,6 @@ public:
 
   void trickleUp(int loc);
 
-  void print();
 
 private:
   std::vector<T> heap_;
@@ -141,7 +140,6 @@ void Heap<T,PComparator>::pop()
   }
   std::swap(heap_[0], heap_.back());
   heap_.pop_back();
-  //print();
   size_t curr = 0;
   while(curr * m_ + 1 < heap_.size())
   {
@@ -161,14 +159,6 @@ void Heap<T,PComparator>::pop()
   }
 }
 
-template<typename T, typename PComparator>
-void Heap<T,PComparator>::print()
-{
-  for(size_t i = 0; i < heap_.size(); i++)
-  {
-    cout << heap_[i] << " ";
-  }
-  cout << endl;
-}
+
 #endif
 
